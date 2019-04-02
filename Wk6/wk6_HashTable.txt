@@ -1,0 +1,19 @@
+Q1
+4-SUM. Given an array a[ \; ]a[] of nn integers, the 4-SUM problem is to determine if there exist distinct indices ii, jj, kk, and ll such that a[i] + a[j] = a[k] + a[l]a[i]+a[j]=a[k]+a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2n 
+2
+  (under suitable technical assumptions).
+
+Use a hash table,
+Loop the arr twice and compute the two sum and store in the hash table (key=sum, value=(num pairs)), each time check whether the key already exists.
+
+
+Q2
+Hashing with wrong hashCode() or equals(). Suppose that you implement a data type \mathtt{OlympicAthlete}OlympicAthlete for use in a \mathtt{java.util.HashMap}java.util.HashMap.
+
+Describe what happens if you override \mathtt{hashCode()}hashCode() but not \mathtt{equals()}equals().
+Describe what happens if you override \mathtt{equals()}equals() but not \mathtt{hashCode()}hashCode().
+Describe what happens if you override \mathtt{hashCode()}hashCode() but implement \verb#public boolean equals(OlympicAthlete that)#publicbooleanequals(OlympicAthletethat) instead of \verb#public boolean equals(Object that)#publicbooleanequals(Objectthat).
+
+1. every will perform as intended.
+2. nothing should change if the change strictly follows OOP rules/interfacing
+3. It should work as intended

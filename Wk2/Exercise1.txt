@@ -1,0 +1,23 @@
+==================================================================================================================
+Queue with two stacks. Implement a queue with two stacks so that each queue operations takes a constant amortized number of stack operations.
+
+enQueue(q, x)
+  1) While stack1 is not empty, push everything from satck1 to stack2.
+  2) Push x to stack1 (assuming size of stacks is unlimited).
+  3) Push everything back to stack1.
+
+dnQueue(q)
+  1) If stack1 is empty then error
+  2) Pop an item from stack1 and return it
+
+==================================================================================================================
+Stack with max. Create a data structure that efficiently supports the stack operations (push and pop) and also a return-the-maximum operation. Assume the elements are reals numbers so that you can compare them.
+
+add one more helper stack in the data structure -- [trackStack]
+when pushing new elements, push the maximum value in the [trackStack]
+when popping new elements, pop one element in the [trackStack]
+
+==================================================================================================================
+Java generics. Explain why Java prohibits generic array creation.
+
+It's because Java's arrays (unlike generics) contain, at runtime, information about its component type. So you must know the component type when you create the array. Since you don't know what T is at runtime, you can't create the array.

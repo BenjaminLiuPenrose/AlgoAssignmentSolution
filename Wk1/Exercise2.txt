@@ -1,0 +1,41 @@
+﻿=================================================================================================================
+3-SUM in quadratic time. Design an algorithm for the 3-SUM problem that takes time proportional to n^2 in the worst case. You may assume that you can sort the nn integers in time proportional to n^2 or better.
+
+1.sort the array
+2.loop and check if the two-sum equals the negative third number
+=================================================================================================================
+Search in a bitonic array. An array is bitonic if it is comprised of an increasing sequence of integers followed immediately by a decreasing sequence of integers. Write a program that, given a bitonic array of nn distinct integer values, determines whether a given integer is in the array.
+
+Standard version: Use \sim 3 \lg n∼3lgn compares in the worst case.
+Signing bonus: Use \sim 2 \lg n∼2lgn compares in the worst case (and prove that no algorithm can guarantee to perform fewer than \sim 2 \lg n∼2lgn compares in the worst case).
+
+
+
+1.Find the bitonic point (with modified binary search)
+2.compare with the bitonic value
+3.do a binary search in both of the subarray (divided by bitonic point)
+
+(for 2lnn complexity start with mid point)
+=================================================================================================================
+Egg drop. Suppose that you have an n-story building (with floors 1 through n) and plenty of eggs. An egg breaks if it is dropped from floor T or higher and does not break otherwise. Your goal is to devise a strategy to determine the value of T given the following limitations on the number of eggs and tosses:
+
+Version 0: 1 egg, \le T≤T tosses.
+Version 1: \sim 1 \lg n∼1lgn eggs and \sim 1 \lg n∼1lgn tosses.
+Version 2: \sim \lg T∼lgT eggs and \sim 2 \lg T∼2lgT tosses.
+Version 3: 2 eggs and \sim 2 \sqrt n tosses.
+Version 4: 2 eggs and \le c \sqrt T≤c tosses for some fixed constant c.
+
+When we drop an egg from a floor x, there can be two cases (1) The egg breaks (2) The egg doesn’t break.
+
+1) If the egg breaks after dropping from xth floor, then we only need to check for floors lower than x with remaining eggs; so the problem reduces to x-1 floors and n-1 eggs
+2) If the egg doesn’t break after dropping from the xth floor, then we only need to check for floors higher than x; so the problem reduces to k-x floors and n eggs.
+
+Since we need to minimize the number of trials in worst case, we take the maximum of two cases. We consider the max of above two cases for every floor and choose the floor which yields minimum number of trials.
+
+  k ==> Number of floors
+  n ==> Number of Eggs
+  eggDrop(n, k) ==> Minimum number of trials needed to find the critical
+                    floor in worst case.
+  eggDrop(n, k) = 1 + min{max(eggDrop(n - 1, x - 1), eggDrop(n, k - x)): 
+                 x in {1, 2, ..., k}}
+
